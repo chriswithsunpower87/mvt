@@ -55,6 +55,26 @@ uv tool install mvt
 
 For alternative installation options and known issues, please refer to the [documentation](https://docs.mvt.re/en/latest/install/) as well as [GitHub Issues](https://github.com/mvt-project/mvt/issues).
 
+### Development setup from source
+
+Use Python 3.10 or newer (the repository's `.python-version` specifies 3.10) and install [uv](https://docs.astral.sh/uv/) with `pip install uv` or its [official installer](https://docs.astral.sh/uv/getting-started/installation/). Clone the repository and install its development dependencies:
+
+```bash
+git clone https://github.com/chriswithsunpower87/mvt.git
+cd mvt
+uv sync --group dev
+```
+
+Verify the three command-line entry points:
+
+```bash
+uv run mvt --help
+uv run mvt-ios --help
+uv run mvt-android --help
+```
+
+Run `make test` for tests and `make check` for Ruff and mypy. Docker alternatives are provided by `Dockerfile`, `Dockerfile.android`, and `Dockerfile.ios`. Actual device forensics also requires system dependencies such as ADB for Android and libimobiledevice for iOS; see the [installation documentation](https://docs.mvt.re/en/latest/install/).
+
 
 ## Usage
 
